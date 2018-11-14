@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('user/register','APIRegisterController@registerUser');
 
-Route::post('user/login','APIRegisterController@loginUser');
