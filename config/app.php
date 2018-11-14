@@ -210,8 +210,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        // 'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class, 
-		// 'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class, 
+		'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 // jwt-auth secret [COLnSuGStrEZprLZt6fsvSURtwI9MqbF] set successfully.
     ],
 
