@@ -27,11 +27,11 @@ class APILoginController extends Controller
         try{
             if (! $token=JWTAuth::attempt($credentials)) {
                 # code...
-        return response()->json($validator->errors());
+        return response()->json(['error'=>'Invalid username or password'],[401]);
     
             }
         }catch(JWTException $e){
-        return response()->json(['error'=>$e],[500]);
+        return response()->json(['error'=>'Could not Create token'],[500]);
 
         }
 
