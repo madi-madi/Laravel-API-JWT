@@ -21,7 +21,10 @@ Route::post('user/register','APIRegisterController@registerUser');
 
 Route::post('user/login','APILoginController@loginUser');
 
-Route::get('books',function(){
-   $books =  \App\Book::all();
-   return $books;
+Route::group(['middleware' => ['jwt.auth']], function () {
+    Route::apiRresource('books', 'API\BookController');
 });
+// Route::get('books',function(){
+//    $books =  \App\Book::all();
+//    return $books;
+// });
