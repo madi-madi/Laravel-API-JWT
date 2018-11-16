@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Book;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller as BaseController;
+use App\Http\Controllers\API\BaseController as BaseController;
 use Validator;
 class BookController extends BaseController
 {
@@ -12,7 +12,7 @@ class BookController extends BaseController
 
     public function index()
     {
-        $books = Book::all();
+        $books = Book::all(); //all
         return $this->sendResponse($books->toArray(),'Books read successfully');
     }
 
