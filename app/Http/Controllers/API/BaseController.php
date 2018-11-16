@@ -18,19 +18,21 @@ class BaseController extends Controller
         return response()->json($response , 200);
     }
 
-    public function sendErrorResponse($error , $errorMessage=[],$code= 400){
+    public function sendErrorResponse($error , $errorMessage=[],$code = 400){
         $response = [
             'success'=>false,
-            'data'=>$result,
-            'message'=>$error
+            'data'=>'',
+            'message'=>$error,
+            // 'code'=> $code
         ];
 
-        if (!empty($errorMessage)) {
+        if (! empty($errorMessage)) {
+
             $response['data'] = $errorMessage;
             
         }
 
-        return response()->json($response , $cod);
+        return response()->json($response , $code);
     }
 
 }
