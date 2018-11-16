@@ -12,6 +12,7 @@ class BookController extends BaseController
 
     public function index()
     {
+        return "Test here";
         $books = Book::all(); //all
         return $this->sendResponse($books->toArray(),'Books read successfully');
     }
