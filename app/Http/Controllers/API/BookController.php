@@ -45,9 +45,13 @@ class BookController extends BaseController
         if ($validator->fails) {
             return $this->sendErrorResponse('error validation',$validator->eroros);
         }
-       $data = $input->only('name','details');
+    //    $data = $input->only('name','details');
         
-        $book = Book::create($data);
+        $book = Book::create([
+            'name'=> $request->get('name'),
+            'details'=> $request->get('details'),
+
+        ]);
         return $this->sendResponse($book->toArray(),'Book  create success ');
     }
 
