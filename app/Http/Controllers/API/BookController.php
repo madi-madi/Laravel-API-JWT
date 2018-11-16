@@ -35,23 +35,17 @@ class BookController extends BaseController
     // store create
     public function store(Request $request)
     {
-        // $input = $request->all();
-        // return $input;
-        $validator = Validator::make($request->all(),[
+        $input = $request->all();
+        $validator = Validator::make($input,[
             'name'=>'required',
             'details'=>'required',
         ]);
 
-        if ($validator->fails) {
-            return $this->sendErrorResponse('error validation',$validator->eroros);
+        if ($validator->fails()) {
+            return $this->sendErrorResponse('error validation',$validator->eroros());
         }
-    //    $data = $input->only('name','details');
         
-        $book = Book::create([
-            'name'=> $request->get('name'),
-            'details'=> $request->get('details'),
-
-        ]);
+        $book = Book::create($input);
         return $this->sendResponse($book->toArray(),'Book  create success ');
     }
 
@@ -97,8 +91,8 @@ class BookController extends BaseController
             'details'=>'required',
         ]);
 
-        if ($validator->fails) {
-            return $this->sendErrorResponse('error validation',$validator->eroros);
+        if ($validator->fails()) {
+            return $this->sendErrorResponse('error validation',$validator->eroros());
         }
         
         $book = Book::update($input);
