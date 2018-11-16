@@ -42,7 +42,7 @@ class BookController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendErrorResponse('error validation',$validator->eroros());
+            return $this->sendErrorResponse('error validation',$validator->errors());
         }
         
         $book = Book::create($input);
@@ -92,7 +92,7 @@ class BookController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendErrorResponse('error validation',$validator->eroros());
+            return $this->sendErrorResponse('error validation',$validator->errors());
         }
         
         $book = Book::update($input);
