@@ -36,7 +36,7 @@ class BookController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
-        return $input;
+        // return $input;
         $validator = Validator::make($input,[
             'name'=>'required',
             'details'=>'required',
