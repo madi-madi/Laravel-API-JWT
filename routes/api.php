@@ -22,6 +22,6 @@ Route::post('user/register','APIRegisterController@registerUser');
 Route::post('user/login','APILoginController@loginUser');
 
 Route::middleware('jwt.auth')->group(function () {
-    Route::apiResource('books', 'API\BookController');
+    Route::resource('books', 'API\BookController');
 });
 // 
