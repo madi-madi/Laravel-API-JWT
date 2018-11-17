@@ -82,9 +82,10 @@ class BookController extends BaseController
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request ,Book $book)
     {
         $input = $request->all();
+        // return request()->all();
         $validator = 
         Validator::make($input,[
             'name'=>'required',
@@ -95,7 +96,11 @@ class BookController extends BaseController
             return $this->sendErrorResponse('error validation',$validator->errors());
         }
         
-        $book = Book::update($input);
+        // $book = Book::where('id',$id)->update($input); //return id 
+        $book->name = $input['name'];
+        $book->details = $input['details'];
+        $book->save();
+
         return $this->sendResponse($book->toArray(),'Book  update success ');
     }
 
