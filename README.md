@@ -1,4 +1,6 @@
-# Laravel-API-JWT
+# Steps Laravel-API-JWT
+
+
 # 1 - install laravel .
 # 2- install laravel jwt
 https://jwt-auth.readthedocs.io/en/develop/laravel-installation/
@@ -36,4 +38,4 @@ Route::middleware('jwt.auth')->group(function () {
 });
 
 
-# Dev_ME_BEST
+# DEV_ME_BEST
